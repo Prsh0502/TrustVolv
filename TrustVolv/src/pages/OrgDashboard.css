@@ -1,0 +1,62 @@
+/* Org Dashboard CSS */
+
+.full-height {
+  height: 100%;
+}
+
+.trend-stats {
+  font-size: 13px;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dispatch-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  padding: 0 16px;
+  border-radius: var(--radius-md);
+  color: var(--text-tertiary);
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px 0;
+  color: var(--text-primary);
+  font-size: 13px;
+}
+
+.filter-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: var(--border-accent);
+  color: var(--text-primary);
+}
+
+@media (max-width: 1024px) {
+  .trend-stats {
+    display: none;
+  }
+}

@@ -1,0 +1,190 @@
+.animated-card {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.card-description {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.card-visual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 10px 0;
+}
+
+/* Base wrapper to keep content centered and sized properly */
+.visual-wrapper {
+  position: relative;
+  width: 356px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visual-overlay-trigger {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+/* Common layer props */
+.layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+/* Layer 1 (Back) - Pill Tags */
+.layer1 {
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.pill-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-card);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+}
+
+.visual-overlay-trigger:hover ~ .visual-wrapper .pill-tag {
+  transform: translateY(-8px);
+}
+
+/* Layer 2 - Info Panel */
+.layer2 {
+  z-index: 2;
+  align-items: flex-end;
+  padding-bottom: 24px;
+  box-sizing: border-box;
+}
+
+.layer2-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 12px 16px;
+  width: 280px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+  transform: translateY(10px);
+  opacity: 0;
+}
+
+.visual-overlay-trigger:hover ~ .visual-wrapper .layer2-panel {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.muted-text {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot.large {
+  width: 12px;
+  height: 12px;
+}
+
+/* Layer 3 - Fade overlay */
+.layer3 {
+  z-index: 3;
+}
+
+/* Layer 4 - Bar Chart */
+.layer4 {
+  z-index: 4;
+}
+
+.chart-rect {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-secondary); /* Acts as currentColor for default rects */
+}
+
+.grid-layer {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  background-size: 20px 20px;
+  z-index: 0;
+  mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.ellipse-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

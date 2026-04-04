@@ -1,0 +1,185 @@
+/* Citizen Dashboard Override & Features */
+
+.map-card { padding-bottom: 0; display: flex; flex-direction: column; }
+.map-card .map-container { border-radius: 0 0 var(--radius-lg) var(--radius-lg); height: 380px; flex-grow: 1; min-height: 250px;}
+
+.fab {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gradient-cta);
+  color: #1F232A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(230, 193, 61, 0.4);
+  z-index: 50;
+  transition: box-shadow 0.3s;
+}
+[data-theme="light"] .fab { color: #2D2B27; }
+.fab:hover { box-shadow: 0 8px 30px rgba(230, 193, 61, 0.6); }
+
+/* Welcome Card */
+.welcome-card {
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(72, 213, 151, 0.05) 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px;
+  border: 1px solid var(--border-color);
+  margin-bottom: 24px;
+}
+.welcome-content h1 { font-size: 28px; margin: 0 0 12px 0; color: var(--text-primary); }
+.welcome-content p { font-size: 15px; color: var(--text-secondary); margin: 0; max-width: 600px; line-height: 1.6; }
+.welcome-status {
+  padding: 16px; 
+  background: rgba(72, 213, 151, 0.1); 
+  border: 1px solid rgba(72, 213, 151, 0.3);
+  border-radius: var(--radius-lg);
+}
+
+/* Emergency Actions */
+.emergency-actions {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+}
+.ea-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.ea-header h3 { margin: 0; font-size: 18px; color: var(--text-primary); }
+
+.ea-buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+.ea-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 16px;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: center;
+}
+.ea-btn span { font-size: 18px; font-weight: 700; }
+.ea-btn small { font-size: 12px; opacity: 0.8; }
+.ea-btn.btn-danger-pulse {
+  background: var(--accent-red);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 94, 122, 0.3);
+  animation: pulse-red 2s infinite;
+}
+.ea-btn.btn-danger-pulse:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(255, 94, 122, 0.5);
+  animation: none;
+}
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(255, 94, 122, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 94, 122, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 94, 122, 0); }
+}
+.ea-btn.btn-police { background: var(--accent-blue-soft); color: var(--accent-blue); }
+.ea-btn.btn-ambulance { background: var(--accent-green-soft); color: var(--accent-green); }
+.ea-btn.btn-fire { background: var(--accent-orange-soft); color: var(--accent-orange); }
+
+.ea-btn:not(.btn-danger-pulse):hover {
+  transform: translateY(-4px);
+  filter: brightness(1.1);
+}
+
+/* Smart Guidance */
+.suggestion-card { display: flex; padding: 0 !important; overflow: hidden; }
+.sg-accent-bar { width: 6px; flex-shrink: 0; }
+.sg-accent-bar.critical { background: var(--accent-red); }
+.sg-accent-bar.warning { background: var(--accent-orange); }
+.sg-accent-bar.safe { background: var(--accent-green); }
+
+.sg-content { padding: 20px; flex-grow: 1; }
+.sg-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.sg-top h4 { margin: 0; font-size: 16px; color: var(--text-primary); font-weight: 700; }
+.sg-content p { margin: 0 0 16px 0; color: var(--text-secondary); font-size: 14px; line-height: 1.6; }
+
+/* Contact Settings */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: 8px;
+  border: 1px solid var(--border-subtle);
+  transition: border-color 0.2s;
+  cursor: pointer;
+}
+.contact-item:hover { border-color: var(--border-hover); }
+.contact-item:last-child { margin-bottom: 0; }
+.contact-avatar {
+  background: var(--avatar-bg);
+  color: var(--text-primary);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 16px;
+}
+.contact-details { flex-grow: 1; }
+.contact-details h4 { margin: 0 0 4px 0; font-weight: 600; color: var(--text-primary); }
+.contact-details p { margin: 0; font-size: 12px; color: var(--text-tertiary); }
+
+/* Settings Form elements */
+.setting-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 0; border-bottom: 1px solid var(--border-subtle);
+}
+.setting-info h4 { margin: 0 0 4px 0; font-weight: 600; color: var(--text-primary); }
+.setting-info p { margin: 0; font-size: 12px; color: var(--text-tertiary); }
+.setting-iconBox { width: 36px; height: 36px; border-radius: 8px; background: var(--bg-secondary); color: var(--text-secondary); display: flex; align-items: center; justify-content: center; }
+
+.custom-toggle {
+  width: 44px; height: 24px;
+  background: var(--bg-secondary);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+  border: 1px solid var(--border-color);
+}
+.custom-toggle.active {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+.custom-toggle .toggle-slider {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 18px; height: 18px;
+  background: #FFF;
+  border-radius: 50%;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.custom-toggle.active .toggle-slider {
+  transform: translateX(20px);
+}
+
+/* My Reports Timeline */
+.report-tracker-card { padding: 24px; }
+.rc-badge { letter-spacing: 0.5px; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .welcome-card { flex-direction: column; gap: 24px; align-items: flex-start; }
+}
+
+/* Leaflet Overrides */
+.leaflet-container { background: var(--bg-input) !important; z-index: 10; }
+.leaflet-control-attribution { background: var(--bg-card) !important; color: var(--text-tertiary) !important; font-size: 10px !important; }
+.leaflet-control-attribution a { color: var(--text-secondary) !important; }
